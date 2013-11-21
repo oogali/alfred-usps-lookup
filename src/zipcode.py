@@ -18,15 +18,16 @@ def main(argv=None):
     argv[1] = argv[1].replace(', ', ' ')
 
   if len(argv) != 2:
-    find_city = ' '.join(argv[1:-1])
+    find_city = ' '.join(argv[0:-1])
     find_state = argv[-1]
   else:
     if ' ' not in argv[1]:
       return items
 
     parts = argv[1].split(' ')
-    find_city = ' '.join(parts[1:-1])
+    find_city = ' '.join(parts[0:-1])
     find_state = parts[-1]
+
     if len(find_state) != 2:
       return items
 
