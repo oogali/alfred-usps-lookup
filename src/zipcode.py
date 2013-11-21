@@ -17,14 +17,16 @@ def main(argv=None):
   if ', ' in argv[1]:
     argv[1] = argv[1].replace(', ', ' ')
 
-  if len(argv) == 3:
-    find_city = argv[1]
-    find_state = argv[2]
+  if len(argv) != 2:
+    find_city = ' '.join(argv[1:-1])
+    find_state = argv[-1]
   else:
     if ' ' not in argv[1]:
       return items
 
-    find_city, find_state = argv[1].split(' ', 2)
+    parts = argv[1].split(' ')
+    find_city = ' '.join(parts[1:-1])
+    find_state = parts[-1]
     if len(find_state) != 2:
       return items
 
